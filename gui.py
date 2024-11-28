@@ -10,12 +10,15 @@ from os import (
 class AppGui(UserControl):
     def __init__(self):
         super().__init__()
-
+        self.title = Text(
+            value="Directory Editor",
+            size=36
+        )
         self.appLayout = Column(
             alignment=MainAxisAlignment.CENTER,
             horizontal_alignment=CrossAxisAlignment.CENTER,
             controls=[
-                Text(value="Hello World")
+                self.title                
             ]
         )
     
