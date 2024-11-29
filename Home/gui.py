@@ -28,7 +28,7 @@ class AppGui(UserControl):
         )
         self.retrieve = FloatingActionButton(
             text="Retrieve",
-            on_click=self.ass
+            on_click=self.retrieveFiles
         )
         self.appLayout = Column(
             alignment=MainAxisAlignment.CENTER,
@@ -43,7 +43,10 @@ class AppGui(UserControl):
     def build(self):
         return self.appLayout
 
-    def ass(self, e):
-        file = FetchFiles()
+    def retrieveFiles(self, e):
+        file = FetchFiles("ChalloE", self.RemoveFiles)
         self.appLayout.controls.append(file)
+        self.update()
+    def RemoveFiles(self, task):
+        self.appLayout.controls.remove(task)
         self.update()
