@@ -14,11 +14,24 @@ class AppGui(UserControl):
             value="Directory Editor",
             size=36
         )
+        self.NoUseText = Text(value="Current Directory: ")
+        self.pathOfDir = TextField(
+            value=os.getcwd(),
+            expand=True
+            )
+        self.path = Row(
+            controls=[
+                self.NoUseText,
+                self.pathOfDir
+            ]            
+        )
         self.appLayout = Column(
             alignment=MainAxisAlignment.CENTER,
             horizontal_alignment=CrossAxisAlignment.CENTER,
             controls=[
-                self.title                
+                self.title,
+                self.path,
+
             ]
         )
     
