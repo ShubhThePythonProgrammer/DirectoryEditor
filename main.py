@@ -3,7 +3,7 @@ from Home.gui import AppGui
 
 
 def main(pg: Page):
-    pg.title = "Directroy Editor"
+    pg.title = "Directory Editor"
     pg.horizontal_alignment = CrossAxisAlignment.CENTER
     pg.add(
         AppGui()
