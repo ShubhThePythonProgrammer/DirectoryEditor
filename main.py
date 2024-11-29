@@ -1,5 +1,5 @@
 from flet import * # type: ignore
-from gui import AppGui
+from Home.gui import AppGui
 
 
 def main(pg: Page):
