@@ -3,7 +3,7 @@ from Home.gui import AppGui
 
 
 def main(pg: Page):
-    pg.title = "App Dev Project"
+    pg.title = "Directroy Editor"
     pg.horizontal_alignment = CrossAxisAlignment.CENTER
     pg.add(
         AppGui()

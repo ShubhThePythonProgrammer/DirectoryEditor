@@ -5,6 +5,7 @@ from os import (
     rename,
     rmdir
 )
+from Home.File import FetchFiles
 
 
 class AppGui(UserControl):
@@ -25,17 +26,24 @@ class AppGui(UserControl):
                 self.pathOfDir
             ]            
         )
+        self.retrieve = FloatingActionButton(
+            text="Retrieve",
+            on_click=self.ass
+        )
         self.appLayout = Column(
             alignment=MainAxisAlignment.CENTER,
             horizontal_alignment=CrossAxisAlignment.CENTER,
             controls=[
                 self.title,
                 self.path,
-
+                self.retrieve
             ]
         )
-    
+        
     def build(self):
         return self.appLayout
 
-        
+    def ass(self, e):
+        file = FetchFiles()
+        self.appLayout.controls.append(file)
+        self.update()
