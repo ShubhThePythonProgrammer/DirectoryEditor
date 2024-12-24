@@ -1,4 +1,4 @@
-from flet import * # type: ignore
+from flet import *
 from Home.gui import AppGui
 
 
