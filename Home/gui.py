@@ -28,7 +28,8 @@ class AppGui(UserControl):
         )
         self.retrieve = FloatingActionButton(
             text="Retrieve",
-            on_click=self.retrieveFiles
+            on_click=self.retrieveFiles,
+            width=100,
         )
         self.appLayout = Column(
             alignment=MainAxisAlignment.CENTER,
