@@ -2,13 +2,22 @@ from flet import * #type: ignore
 
 
 class FetchFiles(UserControl):
-    def __init__(self, value_text, remove_task):
+    def __init__(self, value_text, remove_task, is_directory=False):
         super().__init__()
         self.value = value_text
         self.remove_task = remove_task
+        self.is_directory = is_directory
+        self.createUI()
+    
+    def createUI(self):
+        self.color = colors.BLUE if self.is_directory else colors.WHITE
+
+        
+        
+
         # declaring checkboxes and creating edit text field
     def build(self):
-        self.task_tf = TextField(hint_text=self.value, expand=True)
+        self.task_tf = TextField(hint_text=self.value, expand=True, bgcolor=self.color)
         self.edit_tf = TextField(value=self.value, expand=True)
 
         # main structure of the app

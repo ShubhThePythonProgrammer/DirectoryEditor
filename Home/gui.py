@@ -46,7 +46,11 @@ class AppGui(UserControl):
     def retrieveFiles(self, e):
         self.content =  list(os.listdir())
         for i in self.content:
-            file = FetchFiles(i, self.RemoveFiles)
+            itemPath = os.path.join(os.getcwd(), i)
+            if os.path.isdir(itemPath):
+                file = FetchFiles(i, self.RemoveFiles, is_directory=True)
+            else:
+                file = FetchFiles(i, self.RemoveFiles)
             self.appLayout.controls.append(file)
             self.update()
     def RemoveFiles(self, task):
