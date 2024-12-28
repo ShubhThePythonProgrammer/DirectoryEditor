@@ -44,9 +44,11 @@ class AppGui(UserControl):
         return self.appLayout
 
     def retrieveFiles(self, e):
-        file = FetchFiles("ChalloE", self.RemoveFiles)
-        self.appLayout.controls.append(file)
-        self.update()
+        self.content =  list(os.listdir())
+        for i in self.content:
+            file = FetchFiles(i, self.RemoveFiles)
+            self.appLayout.controls.append(file)
+            self.update()
     def RemoveFiles(self, task):
         self.appLayout.controls.remove(task)
         self.update()
