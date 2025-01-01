@@ -12,9 +12,6 @@ class FetchFiles(UserControl):
     def createUI(self):
         self.color = colors.BLUE if self.is_directory else colors.WHITE
 
-        
-        
-
         # declaring checkboxes and creating edit text field
     def build(self):
         self.task_tf = TextField(hint_text=self.value, expand=True, bgcolor=self.color)
