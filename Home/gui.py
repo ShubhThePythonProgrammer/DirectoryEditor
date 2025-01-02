@@ -11,6 +11,7 @@ from Home.File import FetchFiles
 class AppGui(UserControl):
     def __init__(self):
         super().__init__()
+        self.counter = 0
         self.title = Text(
             value="Directory Editor",
             size=36
@@ -45,15 +46,20 @@ class AppGui(UserControl):
         return self.appLayout
 
     def retrieveFiles(self, e):
-        self.content =  list(os.listdir())
-        for i in self.content:
-            itemPath = os.path.join(os.getcwd(), i)
-            if os.path.isdir(itemPath):
-                file = FetchFiles(i, self.RemoveFiles, is_directory=True)
-            else:
-                file = FetchFiles(i, self.RemoveFiles)
-            self.appLayout.controls.append(file)
-            self.update()
+        self.counter += 1
+        if self.counter > 1:
+            pass
+        else:    
+            self.content =  list(os.listdir())
+            for i in self.content:
+                itemPath = os.path.join(os.getcwd(), i)
+                if os.path.isdir(itemPath):
+                    file = FetchFiles(i, self.RemoveFiles, is_directory=True)
+                else:
+                    file = FetchFiles(i, self.RemoveFiles)
+                self.appLayout.controls.append(file)
+                self.update()
+        
     def RemoveFiles(self, task):
         self.appLayout.controls.remove(task)
         self.update()
