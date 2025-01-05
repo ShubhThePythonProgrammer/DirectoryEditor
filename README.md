@@ -14,3 +14,4 @@ from os import (
 ---
 
 ## If you are in a directory, then, choose among the two buttons to modify the file
+# The MD Directory is published to show my struggles during the making of this project :D
