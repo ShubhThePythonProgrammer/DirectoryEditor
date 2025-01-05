@@ -1,10 +1,5 @@
 from flet import * #type: ignore
 import os
-from os import (
-    remove,
-    rename,
-    rmdir
-)
 from Home.File import FetchFiles
 
 
