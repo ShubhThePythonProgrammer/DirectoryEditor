@@ -57,5 +57,6 @@ class FetchFiles(UserControl):
         self.task_tf.label = self.edit_tf.value
         self.task_view.visible = True
         self.edit_view.visible = False
+        rename(self.value, self.edit_tf.value)
         self.update()
     

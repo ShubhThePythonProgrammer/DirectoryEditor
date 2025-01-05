@@ -10,3 +10,8 @@ we can say :
 ```
 os.remove(self.value)
 ```
+This works!
+But for renaming we should use rename()
+```
+os.rename(self.value)
+``` 
