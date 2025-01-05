@@ -1,4 +1,5 @@
 from flet import *
+from os import (rename, remove, rmdir)
 
 
 class FetchFiles(UserControl):
@@ -48,6 +49,8 @@ class FetchFiles(UserControl):
 
     def delete_clicked(self, e):
         self.remove_task(self)
+        remove(self.value)
+
     # defining the save button
 
     def save_clicked(self, e):
