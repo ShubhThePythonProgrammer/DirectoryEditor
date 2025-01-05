@@ -50,13 +50,16 @@ class FetchFiles(UserControl):
     def delete_clicked(self, e):
         self.remove_task(self)
         remove(self.value)
+        self.update()
 
     # defining the save button
 
     def save_clicked(self, e):
         self.task_tf.label = self.edit_tf.value
+        rename(self.value, self.edit_tf.value)
+        self.value = self.edit_tf.value
+        print(f"LOGS:\n{self.value}")
         self.task_view.visible = True
         self.edit_view.visible = False
-        rename(self.value, self.edit_tf.value)
         self.update()
     

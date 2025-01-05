@@ -15,3 +15,7 @@ But for renaming we should use rename()
 ```
 os.rename(self.value)
 ``` 
+This raises a new problem that renaming a file although updates the UI and it also updates in the actual directory, doesn't allow to delete it
+This happens because the TextField ID remains the same
+TextField ID is self.value
+so assigning self.edit_tf.value to self.value resolves the issue
