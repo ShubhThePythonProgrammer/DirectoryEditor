@@ -2,19 +2,13 @@ from flet import *
 from os import (rename, remove, rmdir)
 
 
-class FetchFiles(UserControl):
+class FetchFiles(Column):
     def __init__(self, value_text, remove_task, is_directory=False):
         super().__init__()
         self.value = value_text
         self.remove_task = remove_task
         self.is_directory = is_directory
-        self.createUI()
-    
-    def createUI(self):
-        self.color = colors.BLUE if self.is_directory else colors.WHITE
-
-        # declaring checkboxes and creating edit text field
-    def build(self):
+        self.color = Colors.BLUE if self.is_directory else Colors.WHITE
         self.task_tf = TextField(hint_text=self.value, expand=True, bgcolor=self.color)
         self.edit_tf = TextField(value=self.value, expand=True)
 
@@ -24,8 +18,8 @@ class FetchFiles(UserControl):
             controls=[
                 self.task_tf,
                 # creating buttons to do stuff
-                IconButton(icon=icons.CREATE_OUTLINED, on_click=self.edit_clicked),
-                IconButton(icon=icons.DELETE_OUTLINE, on_click=self.delete_clicked)
+                IconButton(icon=Icons.CREATE_OUTLINED, on_click=self.edit_clicked),
+                IconButton(icon=Icons.DELETE_OUTLINE, on_click=self.delete_clicked)
             ]
 
         )
@@ -34,11 +28,14 @@ class FetchFiles(UserControl):
             visible=False,
             controls=[
                 self.edit_tf,
-                IconButton(icon=icons.CHECK, on_click=self.save_clicked)
+                IconButton(icon=Icons.CHECK, on_click=self.save_clicked)
             ]
         )
-        # returning all the stuff mentioned above
-        return Column(controls=[self.task_view, self.edit_view])
+        
+        self.controls=[self.task_view, self.edit_view]
+        
+        # declaring checkboxes and creating edit text field
+    
     # defining edit buttons
 
     def edit_clicked(self, e):
