@@ -3,7 +3,7 @@ import os
 from Home.File import FetchFiles
 
 
-class AppGui(UserControl):
+class AppGui(Column):
     def __init__(self):
         super().__init__()
         self.counter = 0
@@ -20,25 +20,19 @@ class AppGui(UserControl):
             controls=[
                 self.NoUseText,
                 self.pathOfDir
-            ]            
+            ]          
         )
         self.retrieve = FloatingActionButton(
             text="Retrieve",
             on_click=self.retrieveFiles,
             width=100,
         )
-        self.appLayout = Column(
-            alignment=MainAxisAlignment.CENTER,
-            horizontal_alignment=CrossAxisAlignment.CENTER,
-            controls=[
+        self.controls = [
                 self.title,
                 self.path,
                 self.retrieve
             ]
-        )
         
-    def build(self):
-        return self.appLayout
 
     def retrieveFiles(self, e):
         self.counter += 1
@@ -52,9 +46,9 @@ class AppGui(UserControl):
                     file = FetchFiles(i, self.RemoveFiles, is_directory=True)
                 else:
                     file = FetchFiles(i, self.RemoveFiles)
-                self.appLayout.controls.append(file)
+                self.controls.append(file)
                 self.update()
         
     def RemoveFiles(self, task):
-        self.appLayout.controls.remove(task)
+        self.controls.remove(task)
         self.update()
